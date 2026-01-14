@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Eligibility - RAWDATA CRP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a4d8c 0%, #1e6ba8 50%, #2a8fd4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+        
+        .slide-container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slide-content {
+            background-image: url('assets/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px 50px;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 860px;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .logo1 {
+            height: auto;
+            width: auto;
+            max-width: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .logo2 {
+            height: auto;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+            opacity: 1;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.40);
+            z-index: 0;
+        }
+        
+        .slide-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .content-header h2 {
+            font-size: 42px;
+            color: #0a4d8c;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .criteria-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f9fc 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 35px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .criteria-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 107, 168, 0.2);
+        }
+        
+        .criteria-card h3 {
+            font-size: 24px;
+            color: #0a4d8c;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .criteria-card p {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(30, 107, 168, 0.08);
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            right: -30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="logo-container">
+                <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+            </div>
+            <div class="decorative-elements">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+            </div>
+            
+            <div class="content-header">
+                <h2>This Program Is For You If...</h2>
+            </div>
+            
+            <div class="criteria-grid">
+                <div class="criteria-card">
+                    <h3>You have 3+ years of professional experience</h3>
+                    <p>Prior corporate experience in relevant functions, with a track record of delivering results.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3>You've taken a career break of 1–5 years</h3>
+                    <p>Whether for family, personal development, health, or other priorities—you're ready to return.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3>You're eager to learn and grow</h3>
+                    <p>You bring curiosity, adaptability, and a commitment to developing new skills in a changing workplace.</p>
+                </div>
+                
+                <div class="criteria-card">
+                    <h3>You're ready to make an impact</h3>
+                    <p>You want to contribute meaningfully, collaborate with talented teams, and build a fulfilling career.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

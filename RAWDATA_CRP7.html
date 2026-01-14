@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - RAWDATA CRP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a4d8c 0%, #1e6ba8 50%, #2a8fd4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+        
+        .slide-container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slide-content {
+            background-image: url('assets/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px 60px;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 860px;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .logo1 {
+            height: auto;
+            width: auto;
+            max-width: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .logo2 {
+            height: auto;
+            width: auto;
+            max-width: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1);
+            opacity: 1;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.40);
+            z-index: 0;
+        }
+        
+        .slide-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .text-content h2 {
+            font-size: 42px;
+            color: #0a4d8c;
+            margin-bottom: 50px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .action-section {
+            margin-bottom: 50px;
+        }
+        
+        .action-section h3 {
+            font-size: 28px;
+            color: #0a4d8c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .action-section p {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f9fc 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            color: #0a4d8c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .contact-info p {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info a {
+            color: #1e6ba8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .image-section {
+            position: relative;
+        }
+        
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(30, 107, 168, 0.1);
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            right: -50px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            left: -30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="logo-container">
+                <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+            </div>
+            <div class="decorative-elements">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Ready to Take the Next Step?</h2>
+                    
+                    <div class="action-section">
+                        <h3>Apply Online</h3>
+                        <p>Submit your application to our email id. We'll review and reach out within 2 business days.</p>
+                        <p><strong>Website:</strong> <a href="https://www.rawdatatech.com/" target="_blank">https://www.rawdatatech.com/</a></p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Have Questions?</h3>
+                        <p>Our recruitment team is here to help. Call or email us to learn more about the program.</p>
+                        <p><strong>Email:</strong> <a href="mailto:hr@rawdatatech.com">hr@rawdatatech.com</a></p>
+                        <p><strong>Phone:</strong> 859295920</p>
+                    </div>
+                </div>
+                
+                <div class="image-section">
+                    <img src="assets/w4.jpg" alt="Professional Women">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

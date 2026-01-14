@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>inTEUtion Career Restart Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg,#0f3460 50%, #1a237e 75%, #0d47a1 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(30, 107, 168, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(26, 35, 126, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(13, 71, 161, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.03) 35px, rgba(255, 255, 255, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.03) 35px, rgba(255, 255, 255, 0.03) 70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+     
+      
+        
+  
+        
+   
+      
+
+        
+        
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px) scale(1.2);
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg) translateY(0);
+            }
+            50% {
+                transform: rotate(180deg) translateY(50px);
+            }
+            100% {
+                transform: rotate(360deg) translateY(0);
+            }
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .slide-content {
+            background-image: url('assets/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            padding: 20px 60px;
+            position: relative;
+            min-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                background-attachment: scroll;
+                background-size: cover;
+            }
+        }
+        
+        .slide-content.padding-50 {
+            padding: 20px 50px;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 60px;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .logo1, .logo2 {
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+       .logo1
+  {
+    max-width: 10px;
+    opacity: .10;
+  }      
+        .logo2 {
+            max-width: 160px;
+        }
+        
+        .logo1:hover, .logo2:hover {
+            transform: scale(1.1);
+            opacity: 1;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.40);
+            z-index: 0;
+        }
+        
+        .slide-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 10px;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .content-wrapper.two-col {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .content-wrapper.quote-layout {
+            grid-template-columns: 1fr 1.1fr;
+        }
+        
+        .text-content h1 {
+            font-size: 48px;
+            color: #0a4d8c;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .text-content h2 {
+            font-size: 42px;
+            color: #0a4d8c;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .text-content p {
+            font-size: 22px;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .text-content p.small {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .text-content p.first-large {
+            font-size: 20px;
+            color: #0a4d8c;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .highlight-box p {
+            font-size: 20px;
+            color: #0a4d8c;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 20px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #0a4d8c;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(30, 107, 168, 0.15);
+        }
+        
+        .content-header {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 25px;
+        }
+        
+        .content-header h2 {
+            font-size: 42px;
+            color: #0a4d8c;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .content-header p {
+            font-size: 20px;
+            color: #2c3e50;
+        }
+        
+        .content-header p.small {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .roles-grid, .criteria-grid, .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .role-card, .criteria-card, .benefit-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f9fc 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .criteria-card, .benefit-card {
+            padding: 35px;
+        }
+        
+        .role-card:hover, .criteria-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 107, 168, 0.2);
+        }
+        
+        .role-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        
+        .role-card h3, .criteria-card h3, .benefit-card h3 {
+            font-size: 26px;
+            color: #0a4d8c;
+            margin: 0;
+            font-weight: 700;
+            flex: 1;
+        }
+        
+        .criteria-card h3, .benefit-card h3 {
+            font-size: 24px;
+        }
+        
+        .role-card p, .criteria-card p, .benefit-card p {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .criteria-card p, .benefit-card p {
+            line-height: 1.7;
+        }
+        
+        .quote-section {
+            position: relative;
+        }
+        
+        .quote-mark {
+            font-size: 120px;
+            color: #1e6ba8;
+            opacity: 0.2;
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-size: 32px;
+            color: #0a4d8c;
+            line-height: 1.6;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-description {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        
+        .action-section {
+            margin-bottom: 50px;
+        }
+        
+        .action-section h3 {
+            font-size: 28px;
+            color: #0a4d8c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .action-section p {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f9fc 100%);
+            border-left: 5px solid #1e6ba8;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            color: #0a4d8c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .contact-info p {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info a {
+            color: #1e6ba8;
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Touch-friendly links for mobile */
+        @media (max-width: 768px) {
+            .contact-info a {
+                display: inline-block;
+                padding: 2px 0;
+                min-height: 44px;
+                line-height: 44px;
+            }
+        }
+        
+        .image-section {
+            position: relative;
+        }
+        
+        .image-section img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: block;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(30, 107, 168, 0.1);
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            right: -50px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            left: -30px;
+        }
+        
+        .circle-small {
+            width: 180px;
+            height: 180px;
+            top: -40px;
+            right: -40px;
+        }
+        
+        .circle-tiny {
+            width: 120px;
+            height: 120px;
+            bottom: -20px;
+            left: -20px;
+        }
+
+        /* Responsive Design - Mobile First Approach */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .main-container {
+                max-width: 100%;
+            }
+
+            .slide-content {
+                padding: 15px 20px !important;
+                min-height: auto;
+            }
+
+            .logo-container {
+                position: relative;
+                left: auto;
+                transform: none;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                gap: 10px !important;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .logo1 {
+                max-width: 10px;
+                opacity: .10;
+            }
+
+            .logo2 {
+                max-width: 120px;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                margin-top: 10px;
+            }
+
+            .content-wrapper.two-col,
+            .content-wrapper.quote-layout {
+                grid-template-columns: 1fr !important;
+            }
+
+            .text-content h1 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .text-content h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .text-content p {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .text-content p.small {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .text-content p.first-large {
+                font-size: 16px;
+            }
+
+            .highlight-box {
+                padding: 15px 20px;
+                margin-top: 20px;
+            }
+
+            .highlight-box p {
+                font-size: 16px;
+            }
+
+            .highlight-text {
+                padding: 15px 20px;
+                font-size: 14px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            .content-header {
+                margin-bottom: 30px;
+                margin-top: 15px;
+            }
+
+            .content-header h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .content-header p {
+                font-size: 16px;
+            }
+
+            .content-header p.small {
+                font-size: 14px;
+            }
+
+            .roles-grid,
+            .criteria-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .role-card,
+            .criteria-card,
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .criteria-card,
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .role-card h3,
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 20px;
+            }
+
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 18px;
+            }
+
+            .role-card p,
+            .criteria-card p,
+            .benefit-card p {
+                font-size: 14px;
+            }
+
+            .role-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .quote-mark {
+                font-size: 60px;
+                top: -15px;
+                left: -10px;
+            }
+
+            .quote-text {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .quote-description {
+                font-size: 14px;
+            }
+
+            .action-section {
+                margin-bottom: 30px;
+            }
+
+            .action-section h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .action-section p {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+
+            .contact-info h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .image-section img {
+                border-radius: 10px;
+            }
+
+            .circle {
+                display: none;
+            }
+
+            .slide-section {
+                margin-bottom: 20px;
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .slide-content {
+                padding: 10px 15px !important;
+            }
+
+            .text-content h1 {
+                font-size: 24px;
+            }
+
+            .text-content h2 {
+                font-size: 20px;
+            }
+
+            .text-content p {
+                font-size: 14px;
+            }
+
+            .content-header h2 {
+                font-size: 20px;
+            }
+
+            .role-card h3,
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 18px;
+            }
+
+            .quote-text {
+                font-size: 18px;
+            }
+
+            .logo2 {
+                max-width: 100px;
+            }
+
+            .logo1 {
+                max-width: 10px;
+                opacity: .10;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slide-content {
+                padding: 20px 40px;
+            }
+
+            .logo-container {
+                padding: 0 40px;
+            }
+
+            .text-content h1 {
+                font-size: 36px;
+            }
+
+            .text-content h2 {
+                font-size: 32px;
+            }
+
+            .text-content p {
+                font-size: 18px;
+            }
+
+            .roles-grid,
+            .criteria-grid,
+            .benefits-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Large Desktop Optimization */
+        @media (min-width: 1400px) {
+            .main-container {
+                max-width: 1400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="animated-squares">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+    <div class="main-container">
+        <!-- Section 1: CRP1 - Hero -->
+        <section class="slide-section">
+            <div class="slide-content">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                </div>
+                
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h1>inTEUtion Career Restart Program</h1>
+                        <p>Empowering women professionals to reclaim their place in the corporate world with confidence, support, and opportunity.</p>
+                        
+                        <div class="highlight-box">
+                            <p>A dedicated hiring initiative for women returning to: Sales, Pre-Sales, Business Development and Marketing Roles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="image-section">
+                        <img src="assets/w1.jpg" alt="Professional Woman">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: CRP2 - Career Break -->
+        <section class="slide-section">
+            <div class="slide-content">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-small"></div>
+                </div>
+                
+                <div class="content-wrapper two-col">
+                    <div class="text-content">
+                        <h2>Took a Career Break for Family or Personal Priorities?</h2>
+                        <p class="first-large">Life happens. Whether you stepped away to raise a family, care for loved ones, pursue personal growth, or address health needs—your decision took courage and commitment</p>
+                        
+                        <p class="small">We understand that returning to work after a break can feel overwhelming. Questions about relevance, outdated skills, or workplace changes are natural.</p>
+                        
+                        <p class="small">Many talented professionals pause their careers, and that pause doesn't diminish your skills, experience, or potential. It's simply part of your unique journey.</p>
+                        
+                        <p class="highlight-text">But here's the truth: your experience matters, your perspective is valuable, and the professional world needs what you bring to the table.</p>
+                    </div>
+                    
+                    <div class="image-section">
+                        <img src="assets/w2.jpg" alt="Professional Woman">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: CRP3 - We're Hiring -->
+        <section class="slide-section">
+            <div class="slide-content padding-50">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-small"></div>
+                </div>
+                
+                <div class="content-header">
+                    <h2>We're Hiring For</h2>
+                    <p>We're building diverse teams across multiple functions and looking for talented women ready to restart their careers.</p>
+                </div>
+                
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <h3>Sales</h3>
+                            <img src="assets/sales.png" alt="Sales Icon" class="role-icon">
+                        </div>
+                        <p>Build relationships, drive revenue, and connect clients with solutions that make a difference in their business</p>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <h3>Pre-Sales</h3>
+                            <img src="assets/Pre-Sales.png" alt="Pre-Sales Icon" class="role-icon">
+                        </div>
+                        <p>Bridge the gap between technical solutions and customer needs through consultative selling and product expertise.</p>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <h3>Marketing</h3>
+                            <img src="assets/marketing.png" alt="Marketing Icon" class="role-icon">
+                        </div>
+                        <p>Craft compelling campaigns, build brand awareness, and engage audiences across digital and traditional channels</p>
+                    </div>
+                    
+                    <div class="role-card">
+                        <div class="role-header">
+                            <h3>Business Development</h3>
+                            <img src="assets/businessdevlopment.png" alt="Business Development Icon" class="role-icon">
+                        </div>
+                        <p>Identify new opportunities, forge strategic partnerships, and drive organizational growth in emerging markets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: CRP4 - Program Eligibility -->
+        <section class="slide-section">
+            <div class="slide-content padding-50">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                </div>
+                
+                <div class="content-header">
+                    <h2>This Program Is For You If...</h2>
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-card">
+                        <h3>You have 3+ years of professional experience</h3>
+                        <p>Prior corporate experience in relevant functions, with a track record of delivering results.</p>
+                    </div>
+                    
+                    <div class="criteria-card">
+                        <h3>You've taken a career break of 1–5 years</h3>
+                        <p>Whether for family, personal development, health, or other priorities—you're ready to return.</p>
+                    </div>
+                    
+                    <div class="criteria-card">
+                        <h3>You're eager to learn and grow</h3>
+                        <p>You bring curiosity, adaptability, and a commitment to developing new skills in a changing workplace.</p>
+                    </div>
+                    
+                    <div class="criteria-card">
+                        <h3>You're ready to make an impact</h3>
+                        <p>You want to contribute meaningfully, collaborate with talented teams, and build a fulfilling career.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: CRP5 - Why Join Us -->
+        <section class="slide-section">
+            <div class="slide-content padding-50">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-small"></div>
+                    <div class="circle circle-tiny"></div>
+                </div>
+                
+                <div class="content-header">
+                    <h2>Why Join Us?</h2>
+                    <p class="small">We've designed this program specifically for professionals like you—combining structure, support, and genuine commitment to your success.</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>Structured Onboarding</h3>
+                        <p>A comprehensive 30-day program introducing you to tools, processes, and team culture at a comfortable pace.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3>Dedicated Mentorship</h3>
+                        <p>You'll be paired with an experienced mentor who provides guidance, answers questions, and champions your growth</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3>Inclusive Culture</h3>
+                        <p>Join a workplace that values diverse perspectives, flexible arrangements, and work-life balance for all team members.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3>Clear Career Path</h3>
+                        <p>We're invested in your long-term success with defined advancement opportunities and continuous learning resources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: CRP6 - Inspiration -->
+        <section class="slide-section">
+            <div class="slide-content">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                </div>
+                
+                <div class="content-wrapper quote-layout">
+                    <div class="quote-section">
+                        <div class="quote-mark">"</div>
+                        <div class="quote-text">"A career break is not the end of your story—it's the beginning of an even more powerful chapter."</div>
+                        <div class="quote-description">
+                            Your journey has given you resilience, perspective, and strengths that many professionals never develop. The workplace isn't just ready for you—it needs you. Your unique combination of experience, life skills, and renewed energy makes you an invaluable asset to any team.
+                        </div>
+                    </div>
+                    
+                    <div class="image-section">
+                        <img src="assets/w3.jpg" alt="Professional Woman">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: CRP7 - Contact -->
+        <section class="slide-section">
+            <div class="slide-content">
+                <div class="logo-container">
+                    <img src="assets/logo1.png" alt="RAWDATA Logo" class="logo1">
+                    <img src="assets/logo2.png" alt="INTUITION Logo" class="logo2">
+                </div>
+                <div class="decorative-elements">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                </div>
+                
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2>Ready to Take the Next Step?</h2>
+                        
+                        <div class="action-section">
+                          
+                            <p><strong>Website:</strong> <a href="https://inteution.com/" target="_blank">https://www.inteution.com/</a></p>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h3>Have Questions?</h3>
+                            <p>Our recruitment team is here to help. Call or email us to learn more about the program.</p>
+                            <p><strong>Email:</strong> <a href="mailto: hrinfo@inteution.com"> hrinfo@inteution.com</a></p>
+                            <p><strong>Phone:</strong> +91 90723 40021</p>
+                        </div>
+                    </div>
+                    
+                    <div class="image-section">
+                        <img src="assets/w4.jpg" alt="Professional Women">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
