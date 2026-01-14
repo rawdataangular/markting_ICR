@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>inTEUtion Career Restart Program</title>
     <style>
         * {
@@ -111,9 +112,17 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: scroll;
             padding: 20px 60px;
             position: relative;
             min-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                background-attachment: scroll;
+                background-size: cover;
+            }
         }
         
         .slide-content.padding-50 {
@@ -125,7 +134,10 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 930px;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 60px;
             align-items: center;
             z-index: 10;
         }
@@ -133,7 +145,7 @@
         .logo1, .logo2 {
             height: auto;
             width: auto;
-           
+            max-width: 100%;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
             transition: transform 0.3s ease, filter 0.3s ease;
@@ -413,10 +425,21 @@
             color: #1e6ba8;
             text-decoration: none;
             font-weight: 600;
+            word-break: break-all;
         }
         
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        /* Touch-friendly links for mobile */
+        @media (max-width: 768px) {
+            .contact-info a {
+                display: inline-block;
+                padding: 2px 0;
+                min-height: 44px;
+                line-height: 44px;
+            }
         }
         
         .image-section {
@@ -426,10 +449,12 @@
         .image-section img {
             width: 100%;
             height: auto;
-            max-height: 600px;
-            object-fit: cover;
+            max-width: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: block;
+            object-fit: cover;
+            max-height: 600px;
         }
         
         .decorative-elements {
@@ -475,6 +500,291 @@
             bottom: -20px;
             left: -20px;
         }
+
+        /* Responsive Design - Mobile First Approach */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .main-container {
+                max-width: 100%;
+            }
+
+            .slide-content {
+                padding: 15px 20px !important;
+                min-height: auto;
+            }
+
+            .logo-container {
+                position: relative;
+                left: auto;
+                transform: none;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                gap: 10px !important;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .logo1 {
+                max-width: 10px;
+                opacity: .10;
+            }
+
+            .logo2 {
+                max-width: 120px;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                margin-top: 10px;
+            }
+
+            .content-wrapper.two-col,
+            .content-wrapper.quote-layout {
+                grid-template-columns: 1fr !important;
+            }
+
+            .text-content h1 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .text-content h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .text-content p {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .text-content p.small {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .text-content p.first-large {
+                font-size: 16px;
+            }
+
+            .highlight-box {
+                padding: 15px 20px;
+                margin-top: 20px;
+            }
+
+            .highlight-box p {
+                font-size: 16px;
+            }
+
+            .highlight-text {
+                padding: 15px 20px;
+                font-size: 14px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            .content-header {
+                margin-bottom: 30px;
+                margin-top: 15px;
+            }
+
+            .content-header h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .content-header p {
+                font-size: 16px;
+            }
+
+            .content-header p.small {
+                font-size: 14px;
+            }
+
+            .roles-grid,
+            .criteria-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .role-card,
+            .criteria-card,
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .criteria-card,
+            .benefit-card {
+                padding: 20px;
+            }
+
+            .role-card h3,
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 20px;
+            }
+
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 18px;
+            }
+
+            .role-card p,
+            .criteria-card p,
+            .benefit-card p {
+                font-size: 14px;
+            }
+
+            .role-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .quote-mark {
+                font-size: 60px;
+                top: -15px;
+                left: -10px;
+            }
+
+            .quote-text {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .quote-description {
+                font-size: 14px;
+            }
+
+            .action-section {
+                margin-bottom: 30px;
+            }
+
+            .action-section h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .action-section p {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .contact-info {
+                padding: 20px;
+            }
+
+            .contact-info h3 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .image-section img {
+                border-radius: 10px;
+            }
+
+            .circle {
+                display: none;
+            }
+
+            .slide-section {
+                margin-bottom: 20px;
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .slide-content {
+                padding: 10px 15px !important;
+            }
+
+            .text-content h1 {
+                font-size: 24px;
+            }
+
+            .text-content h2 {
+                font-size: 20px;
+            }
+
+            .text-content p {
+                font-size: 14px;
+            }
+
+            .content-header h2 {
+                font-size: 20px;
+            }
+
+            .role-card h3,
+            .criteria-card h3,
+            .benefit-card h3 {
+                font-size: 18px;
+            }
+
+            .quote-text {
+                font-size: 18px;
+            }
+
+            .logo2 {
+                max-width: 100px;
+            }
+
+            .logo1 {
+                max-width: 10px;
+                opacity: .10;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slide-content {
+                padding: 20px 40px;
+            }
+
+            .logo-container {
+                padding: 0 40px;
+            }
+
+            .text-content h1 {
+                font-size: 36px;
+            }
+
+            .text-content h2 {
+                font-size: 32px;
+            }
+
+            .text-content p {
+                font-size: 18px;
+            }
+
+            .roles-grid,
+            .criteria-grid,
+            .benefits-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Large Desktop Optimization */
+        @media (min-width: 1400px) {
+            .main-container {
+                max-width: 1400px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -517,7 +827,7 @@
                     </div>
                     
                     <div class="image-section">
-                        <img src="assets/w1.png" alt="Professional Woman">
+                        <img src="assets/w1.jpg" alt="Professional Woman">
                     </div>
                 </div>
             </div>
@@ -547,7 +857,7 @@
                     </div>
                     
                     <div class="image-section">
-                        <img src="assets/w2.png" alt="Professional Woman">
+                        <img src="assets/w2.jpg" alt="Professional Woman">
                     </div>
                 </div>
             </div>
@@ -713,7 +1023,7 @@
                     </div>
                     
                     <div class="image-section">
-                        <img src="assets/w3.png" alt="Professional Woman">
+                        <img src="assets/w3.jpg" alt="Professional Woman">
                     </div>
                 </div>
             </div>
